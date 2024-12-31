@@ -1,0 +1,12 @@
+﻿Start year of Bass model,
+-,
+Defined based on the first year when total capacity is >= 1MW (Eurostat),
+country,Value
+Bulgaria,2009
+Croatia,2012
+Czechia,2000
+Hungary,2008
+Poland,2011
+Romania,2011
+Slovakia,2010
+Slovenia,2000

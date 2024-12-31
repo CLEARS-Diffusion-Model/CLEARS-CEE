@@ -1,0 +1,28 @@
+﻿Shares of profile_types by country,,
+-,,
+Calculated from end-use energy consumption from Eurostat,,
+country,profile_type,Value
+Bulgaria,normal,0.864960034
+Bulgaria,heating,0.091896849
+Bulgaria,cooling,0.043143117
+Croatia,normal,0.629305089
+Croatia,heating,0.013263868
+Croatia,cooling,0.357431043
+Czechia,normal,0.928799974
+Czechia,heating,0.055484718
+Czechia,cooling,0.015715308
+Hungary,normal,0.923711583
+Hungary,heating,0.020904344
+Hungary,cooling,0.055384073
+Poland,normal,0.97406375
+Poland,heating,0.008253717
+Poland,cooling,0.017682533
+Romania,normal,0.956772154
+Romania,heating,0.001939263
+Romania,cooling,0.041288582
+Slovakia,normal,0.909997629
+Slovakia,heating,0.070352613
+Slovakia,cooling,0.019649758
+Slovenia,normal,0.787053805
+Slovenia,heating,0.075475437
+Slovenia,cooling,0.137470759
