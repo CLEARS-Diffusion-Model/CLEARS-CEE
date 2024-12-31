@@ -118,7 +118,7 @@ class ModelRun:
 
 #        # Load historical data, exogenous assumptions
         self.data = in_f.load_data(self.titles, self.dims, self.timeline)
-        self.data = si.peak_battery_use(self.data, self.titles)
+        self.data = si.battery_use(self.data, self.titles)
 
 
         # Initiate Bass model

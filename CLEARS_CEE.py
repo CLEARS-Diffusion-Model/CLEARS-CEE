@@ -53,19 +53,20 @@ runid = model.name
 np.random.seed(123)
 # Run model
 model.run()
-
+print('Model run finished')
+print('Export results')
 # Export results
 results = copy.deepcopy(model.data)
 
-main_outputs = {'battery_cap': 'Battery storage capacity (MWh)',
+main_outputs = {'battery_cap': 'Battery storage capacity (GWh)',
                 'battery_cum': 'Cumulative number of batteries',
-                'battery_npv': 'NPV of residential battery (EUR)',
-                'battery_share': 'Share of residential batteries owners (%)',
-                'battery_size': 'Size of battery storage system (kWh)',
+                'battery_npv': 'NPV of battery (EUR)',
+                'battery_share': 'Share of batteries owners (%)',
+                'battery_size': 'Size of battery system (kWh)',
                 'charge_level': 'Charge level of batteries (kWh)',
-                'charge_total_2050': 'Avg. battery charging, 2050 (kW)',
-                'discharge_total_2050': 'Avg. battery discharging, 2050 (kW)',
-                'pv_cap_est': 'PV capacity (MW)',
+                'charge_total_2050': 'Avg. charging 2050 (kW)',
+                'discharge_total_2050': 'Avg. discharging 2050 (kW)',
+                'pv_cap_est': 'PV capacity (GW)',
                 'pv_cum': 'Cumulative number of PVs',
                 'pv_gen_adj': 'PV generation profiles (kW)',
                 'pv_gen_total_2050': 'Avg. PV generation, 2050 (kW)',
@@ -130,9 +131,9 @@ with pd.ExcelWriter(os.path.join('output', out_fn)) as writer:
                     data = data[:, :, :, :, np.newaxis, :, :, :].sum(axis = 3)
                 
             if 'timeline' in dim_order:
-                titles_nona[-1] = titles_nona[-1][14:]
+                titles_nona[-1] = titles_nona[-1][16:]
     
-                data = data[:, :, :, :, :, :, 14:]
+                data = data[:, :, :, :, :, :, 16:]
                 
         multi_idx = list(itertools.product(*titles_nona))
         total_len = np.prod(np.array(data.shape)) 
@@ -150,5 +151,9 @@ with pd.ExcelWriter(os.path.join('output', out_fn)) as writer:
         df_out = df_out[dim_order]
         
         # Export
-        df_out.to_excel(writer, sheet_name=var_nm)
-
+        df_out.to_excel(writer, sheet_name=var_nm, index = False)
+        print('finished')
+    writer.save()
+    writer.close()
+    
+print('Ready')
